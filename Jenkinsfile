@@ -21,8 +21,11 @@ pipeline {
 
         stage('Docker') {
             steps {
-                sh 'docker build --tag=wildfly-app .'
-                sh 'oc docker push wildfly-app'
+                dir("docker"){
+                    // change directory
+                    sh 'docker build --tag=wildfly-app .'
+                    sh 'oc docker push wildfly-app'
+                }
             }
         }
 
