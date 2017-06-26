@@ -1,4 +1,4 @@
 FROM jboss/wildfly
 
-ADD contents/node-info.war /opt/wildfly/standalone/deployments/
+ADD contents/node-info.war /opt/jboss/wildfly/standalone/deployments/
 
