@@ -1,5 +1,10 @@
 pipeline {
 
+    //
+    // use agent or node to choose the slave
+    // agent can be embedded into a stage,
+    // while node uses {...} and anything inside runs as specified
+    //
     agent {
         label "maven"
     }
