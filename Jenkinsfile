@@ -32,6 +32,7 @@ pipeline {
         stage('Update Kubernetes spec') {
             steps {
                 // send a message to the deployment repo update job
+                sh "echo 'Move along. Nothing to see here.'"
             }
         }
     }
@@ -42,6 +43,7 @@ pipeline {
         }
         failure{
 //            mail(to: "team@example.com", subject: 'The Pipeline failed :-< ' )
+            sh "echo 'oh no... it went WRONG'"
         }
     }
 
