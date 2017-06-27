@@ -51,6 +51,7 @@ pipeline {
         failure{
 //            mail(to: "team@example.com", subject: 'The Pipeline failed :-< ' )
             echo 'oh no... it went WRONG'
+            sleep 300
         }
     }
 
