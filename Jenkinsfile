@@ -14,6 +14,8 @@ pipeline {
         stage('Info') {
             steps {
                 echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
+                sh "whoami"
+
             }
         }
 
@@ -51,7 +53,11 @@ pipeline {
         failure{
 //            mail(to: "team@example.com", subject: 'The Pipeline failed :-< ' )
             echo 'oh no... it went WRONG'
-            sleep 300
+            sleep 60
+            sleep 60
+            sleep 60
+            sleep 60
+            sleep 60
         }
     }
 
