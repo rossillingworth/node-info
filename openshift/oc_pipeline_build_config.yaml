@@ -9,13 +9,13 @@ parameters:
     displayName: "Application Name"
     name: APP_NAME
     required: true
-    value: openshift-jee-sample
+    value: node-info
   -
     description: "The source URL for the application"
     displayName: "Source URL"
     name: GIT_SOURCE_URL
     required: true
-    value: "https://github.com/openshift/openshift-jee-sample.git"
+    value: "https://github.com/rossillingworth/node-info.git"
   -
     description: "The source Ref for the application"
     displayName: "Source Ref"
@@ -102,14 +102,14 @@ objects:
                       }
                       stage("Build WAR") {
                         sh "mvn clean package -Popenshift"
-                        stash name:"war", includes:"target/ROOT.war"
+                        stash name:"war", includes:"target/node-info.war"
                       }
                     }
 
                     node {
                       stage("Build Image") {
                         unstash name:"war"
-                        sh "oc start-build ${appName}-docker --from-file=target/ROOT.war -n ${project}"
+                        sh "oc start-build ${appName}-docker --from-file=target/node-info.war -n ${project}"
                         openshiftVerifyBuild bldCfg: "${appName}-docker", namespace: project, waitTime: '20', waitUnit: 'min'
                       }
                       stage("Deploy") {
@@ -150,10 +150,10 @@ objects:
       runPolicy: Serial
       source:
         binary:
-          asFile: ROOT.war
+          asFile: node-info.war
         dockerfile: |-
             FROM wildfly
-            COPY ROOT.war /wildfly/standalone/deployments/ROOT.war
+            COPY node-info.war /wildfly/standalone/deployments/ROOT.war
             CMD $STI_SCRIPTS_PATH/run
         type: Docker
       strategy:
