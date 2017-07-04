@@ -64,14 +64,16 @@ It works straight out the box, great for a beginner.
 Each team (Project) can have their own jenkins box
 
 ## Con's
-It is designed for CD, and needs modification to work with a distributed monolith and release management.
+Openshift is designed for CD, and needs modification to work with a distributed monolith and release management.
 
 Privilege escalation is required to allow docker to run in a jenkins slave, and it is hard (this may be a good thing)
 
 BuildConfig is unable to provision Multibranch-Pipeline
 
+BuildConfig is unable to create a polling job
+
 ImageStreams are observing implicit versions (ie: latest), which means that the deployed versions are implicit. 
-This means it may be non-repeatable.
+This means it may be non-repeatable, ie: non-deterministic.
 
 
 
