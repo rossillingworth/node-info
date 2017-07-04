@@ -19,7 +19,7 @@ public class NodeInfoServlet extends HttpServlet {
         writer.println("Java Runtime: " + System.getProperty("java.runtime.name") + " " + System.getProperty("java.runtime.version"));
         writer.println("OS: " + System.getProperty("os.name") + " " + System.getProperty("os.arch") + " " + System.getProperty("os.version"));
         // modified
-        writer.println("and a little bit more .... zzzzzzzzzzzzzzzz");
+        writer.println("and a little bit more .... XXXXXXXXXXXXXXXXXX");
         //
         writer.close();
 
